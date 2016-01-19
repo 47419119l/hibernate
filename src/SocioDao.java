@@ -11,7 +11,7 @@ public class SocioDao {
     private Session sesion;
     private Transaction tx;
 
-    public long guardaContacto(Socis contacto) throws HibernateException
+    public long guardaSoci(Socis soci) throws HibernateException
 
     {
         long id = 0;
@@ -19,7 +19,7 @@ public class SocioDao {
         try
         {
             iniciaOperacion();
-            id = (Long) sesion.save(contacto);
+            id = (Long) sesion.save(soci);
             tx.commit();
         } catch (HibernateException he)
         {
@@ -33,12 +33,12 @@ public class SocioDao {
         return id;
     }
 
-    public void actualizaContacto(Socis contacto) throws HibernateException
+    public void actualizaSoci(Socis soci) throws HibernateException
     {
         try
         {
             iniciaOperacion();
-            sesion.update(contacto);
+            sesion.update(soci);
             tx.commit();
         } catch (HibernateException he)
         {
@@ -50,12 +50,12 @@ public class SocioDao {
         }
     }
 
-    public void eliminaContacto(Socis contacto) throws HibernateException
+    public void eliminaSoci(Socis soci) throws HibernateException
     {
         try
         {
             iniciaOperacion();
-            sesion.delete(contacto);
+            sesion.delete(soci);
             tx.commit();
         } catch (HibernateException he)
         {
@@ -67,13 +67,13 @@ public class SocioDao {
         }
     }
 
-    public Socis obtenContacto(long idContacto) throws HibernateException
+    public Socis obtenSoci(long sociId) throws HibernateException
     {
         Socis contacto = null;
         try
         {
             iniciaOperacion();
-            contacto = (Socis) sesion.get(Socis.class, idContacto);
+            contacto = (Socis) sesion.get(Socis.class, sociId);
         } finally
         {
             sesion.close();
@@ -82,7 +82,7 @@ public class SocioDao {
         return contacto;
     }
 
-    public List<Socis> obtenListaContactos() throws HibernateException
+    public List<Socis> obtenListaSoci() throws HibernateException
     {
         List<Socis> listaContactos = null;
 
