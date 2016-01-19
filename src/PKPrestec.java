@@ -1,17 +1,22 @@
 import javax.persistence.Embeddable;
+import java.io.Serializable;
+import org.hibernate.annotations.ForeignKey;
+import javax.persistence.Embeddable;
+import javax.persistence.ManyToMany;
+import java.io.Serializable;
 
 /**
  * Created by 47419119l on 19/01/16.
  */
 @Embeddable
-public class PKPrestec {
+public class PKPrestec implements Serializable {
     long socioId;
     long llibreId;
 
-    PKPrestec(){
+    public PKPrestec(){
 
     }
-     PKPrestec(long socioId, long llibreId){
+    public PKPrestec(long socioId, long llibreId){
          this.socioId=socioId;
          this.llibreId=llibreId;
      }

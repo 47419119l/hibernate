@@ -1,19 +1,24 @@
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import java.io.Serializable;
 
 /**
  * Created by 47419119l on 19/01/16.
  */
-public class Prestec {
+@Entity
+public class Prestec implements Serializable  {
     //llibre, soci, data inici, data final
     @EmbeddedId
     PKPrestec pkPrestec;
 
     String data_inici;
     String data_final;
-    Prestec(){
+
+    public Prestec(){
 
     }
-    Prestec(PKPrestec pkPrestec, String data_final, String data_inici){
+
+    public Prestec(PKPrestec pkPrestec, String data_final, String data_inici){
         this.pkPrestec= pkPrestec;
         this.data_final=data_final;
         this.data_inici= data_inici;
