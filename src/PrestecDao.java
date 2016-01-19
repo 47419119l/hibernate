@@ -11,7 +11,7 @@ public class PrestecDao {
     private Session sesion;
     private Transaction tx;
 
-    public long guardaPrestec(Prestec llibre) throws HibernateException
+    public long guardaPrestec(Prestec pre) throws HibernateException
 
     {
         long id = 0;
@@ -32,12 +32,12 @@ public class PrestecDao {
         return id;
     }
 
-    public void actualizaPrestec(Prestec soci) throws HibernateException
+    public void actualizaPrestec(Prestec pr) throws HibernateException
     {
         try
         {
             iniciaOperacion();
-            sesion.update(soci);
+            sesion.update(pr);
             tx.commit();
         } catch (HibernateException he)
         {
@@ -49,12 +49,12 @@ public class PrestecDao {
         }
     }
 
-    public void eliminaPrestec(Prestec lli) throws HibernateException
+    public void eliminaPrestec(Prestec pr) throws HibernateException
     {
         try
         {
             iniciaOperacion();
-            sesion.delete(lli);
+            sesion.delete(pr);
             tx.commit();
         } catch (HibernateException he)
         {
@@ -66,20 +66,6 @@ public class PrestecDao {
         }
     }
 
-    public Prestec obtenPrestec(long llibreid) throws HibernateException
-    {
-        Prestec contacto = null;
-        try
-        {
-            iniciaOperacion();
-            contacto = (Prestec) sesion.get(Prestec.class, llibreid);
-        } finally
-        {
-            sesion.close();
-        }
-
-        return contacto;
-    }
 
     public List<Prestec> obtenListaPrestec() throws HibernateException
     {

@@ -8,6 +8,7 @@ import java.util.List;
  * Created by 47419119l on 19/01/16.
  */
 public class SocioDao {
+
     private Session sesion;
     private Transaction tx;
 

@@ -10,8 +10,8 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>2560</introspection-state-number>
-        <introspection-timestamp>2016-01-19.18:15:52.331</introspection-timestamp>
+        <introspection-state-number>2585</introspection-state-number>
+        <introspection-timestamp>2016-01-19.18:22:31.102</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
@@ -20,32 +20,32 @@
         <introspection-timestamp>2015-12-10.20:13:30.375</introspection-timestamp>
       </schema>
       <sequence id="4" parent="2" name="llibre_id_seq">
-        <object-id>16697</object-id>
-        <state-number>2558</state-number>
+        <object-id>16758</object-id>
+        <state-number>2583</state-number>
       </sequence>
       <sequence id="5" parent="2" name="socis_id_seq">
-        <object-id>16716</object-id>
-        <state-number>2560</state-number>
+        <object-id>16777</object-id>
+        <state-number>2585</state-number>
       </sequence>
       <table id="6" parent="2" name="actors">
         <object-id>16431</object-id>
         <state-number>1863</state-number>
       </table>
       <table id="7" parent="2" name="llibre">
-        <object-id>16699</object-id>
-        <state-number>2558</state-number>
+        <object-id>16760</object-id>
+        <state-number>2583</state-number>
       </table>
       <table id="8" parent="2" name="movies">
         <object-id>16423</object-id>
         <state-number>1862</state-number>
       </table>
       <table id="9" parent="2" name="prestec">
-        <object-id>16708</object-id>
-        <state-number>2559</state-number>
+        <object-id>16769</object-id>
+        <state-number>2584</state-number>
       </table>
       <table id="10" parent="2" name="socis">
-        <object-id>16718</object-id>
-        <state-number>2560</state-number>
+        <object-id>16779</object-id>
+        <state-number>2585</state-number>
       </table>
       <table id="11" parent="3" name="pg_aggregate">
         <object-id>2600</object-id>
@@ -20012,36 +20012,36 @@ id_pelicula</columns>
         <primary>1</primary>
       </key>
       <column id="3554" parent="7" name="id">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
         <default-expression>nextval(&apos;llibre_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="3555" parent="7" name="any_edicio">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3556" parent="7" name="editorial">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="3557" parent="7" name="nombre_exemplars">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3558" parent="7" name="nombre_pagines">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3559" parent="7" name="titol">
-        <state-number>2558</state-number>
+        <state-number>2583</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <index id="3560" parent="7" name="llibre_pkey">
-        <object-id>16706</object-id>
+        <object-id>16767</object-id>
         <columns>id</columns>
         <unique>1</unique>
       </index>
@@ -20076,25 +20076,25 @@ id_pelicula</columns>
         <primary>1</primary>
       </key>
       <column id="3567" parent="9" name="llibreid">
-        <state-number>2559</state-number>
+        <state-number>2584</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3568" parent="9" name="socioid">
-        <state-number>2559</state-number>
+        <state-number>2584</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3569" parent="9" name="data_final">
-        <state-number>2559</state-number>
+        <state-number>2584</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="3570" parent="9" name="data_inici">
-        <state-number>2559</state-number>
+        <state-number>2584</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <index id="3571" parent="9" name="prestec_pkey">
-        <object-id>16714</object-id>
+        <object-id>16775</object-id>
         <columns>llibreid
 socioid</columns>
         <unique>1</unique>
@@ -20106,34 +20106,34 @@ socioid</columns>
         <primary>1</primary>
       </key>
       <column id="3573" parent="10" name="id">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
         <default-expression>nextval(&apos;socis_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="3574" parent="10" name="cognom">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="3575" parent="10" name="direccio">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="3576" parent="10" name="edat">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="3577" parent="10" name="nom">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="3578" parent="10" name="telefon">
-        <state-number>2560</state-number>
+        <state-number>2585</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <index id="3579" parent="10" name="socis_pkey">
-        <object-id>16725</object-id>
+        <object-id>16786</object-id>
         <columns>id</columns>
         <unique>1</unique>
       </index>

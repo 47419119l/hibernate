@@ -1,9 +1,6 @@
 import javax.persistence.Embeddable;
 import java.io.Serializable;
-import org.hibernate.annotations.ForeignKey;
-import javax.persistence.Embeddable;
-import javax.persistence.ManyToMany;
-import java.io.Serializable;
+
 
 /**
  * Created by 47419119l on 19/01/16.

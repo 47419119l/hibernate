@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 @Entity
 public class Prestec implements Serializable  {
-    //llibre, soci, data inici, data final
+
     @EmbeddedId
     PKPrestec pkPrestec;
 
