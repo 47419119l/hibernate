@@ -1,5 +1,3 @@
-import java.util.List;
-
 /**
  * Created by 47419119l on 19/01/16.
  */
@@ -17,15 +15,15 @@ public class Main2 {
         Socis  contacto3 = new Socis ("","pepe",20,"","");
         Llibre llibre = new Llibre("La casa de Bernarda Alba",2,"Seg",200,2015);
 
-        PKPrestec idPrestec = new PKPrestec(1,1);
-        Prestec prestec = new Prestec(idPrestec,"2032016","15022016");
+
+        Prestec prestec = new Prestec(1,1,"2032016","15022016");
 
         //Guardamos las tres instancias, guardamos el id del contacto1 para usarlo posteriormente
         contactosDAO.guardaSoci(contacto2);
         contactosDAO.guardaSoci(contacto3);
 
         llibreDao.guardaLlibre(llibre);
-        prestecDao.guardaPrestec(prestec);
+        prestecDao.guardaLlibre(prestec);
 
 
         /*

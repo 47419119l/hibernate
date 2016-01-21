@@ -11,7 +11,7 @@ public class PrestecDao {
     private Session sesion;
     private Transaction tx;
 
-    public long guardaPrestec(Prestec pre) throws HibernateException
+    public long guardaLlibre(Prestec llibre) throws HibernateException
 
     {
         long id = 0;
@@ -19,6 +19,7 @@ public class PrestecDao {
         try
         {
             iniciaOperacion();
+            id = (Long) sesion.save(llibre);
             tx.commit();
         } catch (HibernateException he)
         {

@@ -1,7 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="691.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutX="-1.0" layoutY="28.0" prefHeight="175.0" prefWidth="691.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Alta socis">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="690.0">
+                     <children>
+                        <Text layoutX="41.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+                        <Text layoutX="14.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cognoms" />
+                        <Text layoutX="18.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccio" />
+                        <Text layoutX="346.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefon" />
+                        <TextField layoutX="84.0" layoutY="14.0" prefHeight="26.0" prefWidth="239.0" />
+                        <TextField layoutX="84.0" layoutY="47.0" prefHeight="26.0" prefWidth="240.0" />
+                        <TextField layoutX="407.0" layoutY="47.0" />
+                        <TextField layoutX="407.0" layoutY="15.0" prefHeight="26.0" prefWidth="41.0" />
+                        <TextField layoutX="84.0" layoutY="78.0" prefHeight="26.0" prefWidth="499.0" />
+                        <Text layoutX="364.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edat" />
+                        <Button layoutX="598.0" layoutY="9.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="75.0" text="Alta" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Alta llibres">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="690.0">
+                           <children>
+                              <Text layoutX="55.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titol" />
+                              <Text layoutX="28.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editorial" />
+                              <TextField layoutX="97.0" layoutY="14.0" prefHeight="26.0" prefWidth="488.0" />
+                              <TextField layoutX="98.0" layoutY="47.0" prefHeight="26.0" prefWidth="486.0" />
+                              <TextField layoutX="173.0" layoutY="81.0" prefHeight="29.0" prefWidth="82.0" />
+                              <Button layoutX="598.0" layoutY="9.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="75.0" text="Alta" />
+                              <Text layoutX="433.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Exemplars" />
+                              <Text layoutX="270.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Pagines" />
+                              <Text layoutX="97.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Any edicio" />
+                              <TextField layoutX="359.0" layoutY="82.0" prefHeight="29.0" prefWidth="44.0" />
+                              <TextField layoutX="540.0" layoutY="82.0" prefHeight="29.0" prefWidth="44.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
