@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,10 +10,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="693.0" stylesheets="@Theme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <MenuBar prefHeight="29.0" prefWidth="691.0">
+      <MenuBar layoutY="-3.0" prefHeight="35.0" prefWidth="693.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -31,51 +31,102 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutX="-1.0" layoutY="28.0" prefHeight="175.0" prefWidth="691.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="35.0" prefHeight="531.0" prefWidth="693.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Alta socis">
+          <Tab text="Soci">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="690.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="725.0">
                      <children>
-                        <Text layoutX="41.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
-                        <Text layoutX="14.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cognoms" />
-                        <Text layoutX="18.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccio" />
-                        <Text layoutX="346.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefon" />
-                        <TextField layoutX="84.0" layoutY="14.0" prefHeight="26.0" prefWidth="239.0" />
-                        <TextField layoutX="84.0" layoutY="47.0" prefHeight="26.0" prefWidth="240.0" />
-                        <TextField layoutX="407.0" layoutY="47.0" />
-                        <TextField layoutX="407.0" layoutY="15.0" prefHeight="26.0" prefWidth="41.0" />
-                        <TextField layoutX="84.0" layoutY="78.0" prefHeight="26.0" prefWidth="499.0" />
-                        <Text layoutX="364.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edat" />
-                        <Button layoutX="598.0" layoutY="9.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="75.0" text="Alta" />
+                        <AnchorPane layoutX="5.0" layoutY="336.0" prefHeight="139.0" prefWidth="683.0">
+                           <children>
+                              <Label layoutX="28.0" layoutY="14.0" text="Nom" />
+                              <Label layoutX="12.0" layoutY="57.0" text="Cognoms" />
+                              <Label layoutX="18.0" layoutY="98.0" text="Direccio" />
+                              <Label layoutX="345.0" layoutY="59.0" text="Telefon" />
+                              <TextField fx:id="nomsoci" layoutX="84.0" layoutY="9.0" prefHeight="8.0" prefWidth="239.0" />
+                              <TextField fx:id="cognomsoci" layoutX="83.0" layoutY="52.0" prefHeight="26.0" prefWidth="240.0" />
+                              <TextField fx:id="telefonsoci" layoutX="406.0" layoutY="50.0" prefHeight="35.0" prefWidth="144.0" />
+                              <TextField fx:id="edatsoci" layoutX="406.0" layoutY="9.0" prefHeight="26.0" prefWidth="41.0" text="0" />
+                              <TextField fx:id="direcciosoci" layoutX="83.0" layoutY="93.0" prefHeight="31.0" prefWidth="467.0" />
+                              <Label layoutX="365.0" layoutY="14.0" text="Edat" />
+                              <Button fx:id="altaSoci" layoutX="569.0" layoutY="7.0" mnemonicParsing="false" onAction="#donarAltadaSoci" prefHeight="35.0" prefWidth="110.0" text="Alta" />
+                              <Button layoutX="568.0" layoutY="92.0" mnemonicParsing="false" onAction="#modificarSoci" prefHeight="33.0" prefWidth="114.0" text="Modificar" />
+                              <Button fx:id="eliminarSoci" layoutX="570.0" layoutY="53.0" mnemonicParsing="false" onAction="#eliminarSoci" prefHeight="33.0" prefWidth="110.0" text="Borrar" />
+                           </children>
+                        </AnchorPane>
+                        <ListView fx:id="llistat" layoutX="32.0" layoutY="14.0" onMouseClicked="#SociSelect" prefHeight="295.0" prefWidth="282.0" />
+                        <TextField fx:id="buscarNom" layoutX="390.0" layoutY="16.0" prefHeight="31.0" prefWidth="177.0" />
+                        <TextField fx:id="buscarCognom" layoutX="388.0" layoutY="58.0" prefHeight="31.0" prefWidth="180.0" />
+                        <Button layoutX="326.0" layoutY="276.0" mnemonicParsing="false" onAction="#mostrarTotsSocis" text="Mostrar tots" />
+                        <Button layoutX="580.0" layoutY="31.0" mnemonicParsing="false" onAction="#buscarSoci" text="Buscar" />
+                        <Label layoutX="347.0" layoutY="21.0" text="Nom" />
+                        <Label layoutX="324.0" layoutY="63.0" text="Cognom" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Alta llibres">
+          <Tab onSelectionChanged="#llibrePane" text="LLibres">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="690.0">
+                        <AnchorPane layoutX="2.0" layoutY="372.0" minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="690.0">
                            <children>
-                              <Text layoutX="55.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titol" />
-                              <Text layoutX="28.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editorial" />
-                              <TextField layoutX="97.0" layoutY="14.0" prefHeight="26.0" prefWidth="488.0" />
-                              <TextField layoutX="98.0" layoutY="47.0" prefHeight="26.0" prefWidth="486.0" />
-                              <TextField layoutX="173.0" layoutY="81.0" prefHeight="29.0" prefWidth="82.0" />
-                              <Button layoutX="598.0" layoutY="9.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="75.0" text="Alta" />
-                              <Text layoutX="433.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Exemplars" />
-                              <Text layoutX="270.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Pagines" />
-                              <Text layoutX="97.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Any edicio" />
-                              <TextField layoutX="359.0" layoutY="82.0" prefHeight="29.0" prefWidth="44.0" />
-                              <TextField layoutX="540.0" layoutY="82.0" prefHeight="29.0" prefWidth="44.0" />
+                              <Label layoutX="49.0" layoutY="-11.0" text="Titol" />
+                              <Label layoutX="21.0" layoutY="28.0" text="Editorial" />
+                              <TextField fx:id="titolllibre" layoutX="90.0" layoutY="-16.0" prefHeight="31.0" prefWidth="450.0" />
+                              <TextField fx:id="editoriallibre" layoutX="91.0" layoutY="23.0" prefHeight="31.0" prefWidth="451.0" />
+                              <TextField fx:id="ediciollibre" layoutX="95.0" layoutY="69.0" prefHeight="29.0" prefWidth="82.0" text="0000" />
+                              <Button fx:id="altallibre" layoutX="561.0" layoutY="-17.0" mnemonicParsing="false" onAction="#donarAltadaLlibre" prefHeight="33.0" prefWidth="108.0" text="Alta" />
+                              <Label layoutX="378.0" layoutY="72.0" text="Nº Exemplars" />
+                              <Label layoutX="203.0" layoutY="74.0" text="Nº Pagines" />
+                              <Label layoutX="18.0" layoutY="72.0" text="Any edicio" />
+                              <TextField fx:id="paginesllibre" layoutX="297.0" layoutY="69.0" prefHeight="29.0" prefWidth="44.0" text="0" />
+                              <TextField fx:id="exemplarsllibre" layoutX="481.0" layoutY="67.0" prefHeight="31.0" prefWidth="63.0" text="0" />
+                              <Button fx:id="modificarLlibre" layoutX="560.0" layoutY="22.0" mnemonicParsing="false" onAction="#modificarLlibre" text="Modificar" />
+                              <Button fx:id="borrarLlibre" layoutX="559.0" layoutY="66.0" mnemonicParsing="false" onAction="#borrarLlibre" prefHeight="33.0" prefWidth="113.0" text="Borrar" />
                            </children>
                         </AnchorPane>
+                        <ListView fx:id="llistatLlibres" layoutX="33.0" layoutY="26.0" onMouseClicked="#llibreSelect" prefHeight="311.0" prefWidth="282.0" />
+                        <TextField fx:id="buscarTitols" layoutX="397.0" layoutY="26.0" prefHeight="31.0" prefWidth="174.0" />
+                        <TextField fx:id="buscarAutor" layoutX="397.0" layoutY="82.0" prefHeight="31.0" prefWidth="175.0" />
+                        <Button layoutX="588.0" layoutY="52.0" mnemonicParsing="false" onAction="#buscarPerTitolAutor" text="Buscar" />
+                        <Button layoutX="332.0" layoutY="304.0" mnemonicParsing="false" onAction="#mostrarTotsLlibres" text="Mostrar Tots" />
+                        <Label layoutX="347.0" layoutY="31.0" text="Titol" />
+                        <Label layoutX="331.0" layoutY="87.0" text="Editorial" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab onSelectionChanged="#PrestecSelected" text="Prestecs">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="7.0" layoutY="288.0" prefHeight="200.0" prefWidth="693.0">
+                           <children>
+                              <Label layoutX="42.0" layoutY="93.0" text="Soci" />
+                              <Label layoutX="295.0" layoutY="93.0" text="Llibre" />
+                              <Label layoutY="134.0" text="Data prestec" />
+                              <Label layoutX="275.0" layoutY="134.0" text="Data retornar" />
+                              <Button layoutX="556.0" layoutY="84.0" mnemonicParsing="false" onAction="#altaPrestec" prefHeight="21.0" prefWidth="100.0" text="Alta" />
+                              <Button layoutX="555.0" layoutY="128.0" mnemonicParsing="false" onAction="#BorrarPrestec" prefHeight="33.0" prefWidth="101.0" text="Borrar" />
+                              <TextField fx:id="idSoci" layoutX="91.0" layoutY="88.0" prefHeight="31.0" prefWidth="163.0" />
+                              <TextField fx:id="idLlibre" layoutX="382.0" layoutY="88.0" prefHeight="31.0" prefWidth="129.0" />
+                              <Button layoutX="307.0" layoutY="14.0" mnemonicParsing="false" onAction="#dataFi" text="Data fi" />
+                              <DatePicker fx:id="dataIniciPrestec" layoutX="91.0" layoutY="129.0" prefHeight="31.0" prefWidth="166.0" />
+                              <DatePicker fx:id="dataFinalPrestec" layoutX="382.0" layoutY="129.0" prefHeight="31.0" prefWidth="137.0" />
+                           </children>
+                        </AnchorPane>
+                        <ListView fx:id="llistatPrestec" layoutX="30.0" layoutY="26.0" onMouseClicked="#llistatPrestec" prefHeight="310.0" prefWidth="266.0" />
+                        <TextField fx:id="buscarSociPrestec" layoutX="369.0" layoutY="28.0" prefHeight="31.0" prefWidth="81.0" />
+                        <Button layoutX="467.0" layoutY="27.0" mnemonicParsing="false" onAction="#buscarPrestec" text="Buscar" />
+                        <Label layoutX="310.0" layoutY="33.0" text="Soci" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
+
+      <Label layoutX="-119.0" layoutY="35.0" text="SOCIS" />
    </children>
 </AnchorPane>

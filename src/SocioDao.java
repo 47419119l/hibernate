@@ -2,6 +2,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 /**
@@ -17,86 +21,100 @@ public class SocioDao {
     {
         long id = 0;
 
-        try
-        {
+        try {
             iniciaOperacion();
             id = (Long) sesion.save(soci);
             tx.commit();
-        } catch (HibernateException he)
-        {
+        } catch (HibernateException he) {
             manejaExcepcion(he);
             throw he;
-        } finally
-        {
+        } finally {
             sesion.close();
         }
 
         return id;
     }
 
-    public void actualizaSoci(Socis soci) throws HibernateException
-    {
-        try
-        {
+    public void actualizaSoci(Socis soci) throws HibernateException {
+        try {
             iniciaOperacion();
             sesion.update(soci);
             tx.commit();
-        } catch (HibernateException he)
-        {
+        } catch (HibernateException he) {
             manejaExcepcion(he);
             throw he;
-        } finally
-        {
+        } finally {
             sesion.close();
         }
     }
 
-    public void eliminaSoci(Socis soci) throws HibernateException
-    {
-        try
-        {
+    public void eliminaSoci(Socis soci) throws HibernateException {
+        try {
             iniciaOperacion();
             sesion.delete(soci);
             tx.commit();
-        } catch (HibernateException he)
-        {
+        } catch (HibernateException he) {
             manejaExcepcion(he);
             throw he;
-        } finally
-        {
+        } finally {
             sesion.close();
         }
     }
 
-    public Socis obtenSoci(long sociId) throws HibernateException
-    {
+    public Socis obtenSoci(long sociId) throws HibernateException {
         Socis contacto = null;
-        try
-        {
+        try {
             iniciaOperacion();
             contacto = (Socis) sesion.get(Socis.class, sociId);
-        } finally
-        {
+        } finally {
             sesion.close();
         }
 
         return contacto;
     }
 
-    public List<Socis> obtenListaSoci() throws HibernateException
-    {
+    public List<Socis> obtenListaSoci() throws HibernateException {
         List<Socis> listaContactos = null;
 
-        try
-        {
+        try {
             iniciaOperacion();
             listaContactos = sesion.createQuery("from Socis").list();
-        } finally
-        {
+        } finally {
             sesion.close();
         }
 
         return listaContactos;
+    }
+
+    public List<Socis> consultaSociPerNom(String nom) throws HibernateException {
+       List<Socis> contacto = null;
+        try {
+            iniciaOperacion();
+            contacto =  sesion.createQuery("from Socis where nom = '" + nom + "'").list();
+        } finally {
+            sesion.close();
+        }
+        return contacto;
+    }
+    public List<Socis> consultaSociPerNomCognom(String nom,String cognom) throws HibernateException {
+        List<Socis> contacto = null;
+        try {
+            iniciaOperacion();
+            contacto =  sesion.createQuery("from Socis where nom = '" + nom + "'and cognom = '"+cognom+"'").list();
+        } finally {
+            sesion.close();
+        }
+        return contacto;
+    }
+    public List<Socis> consultaSociPerCognom(String cognom) throws HibernateException {
+        List<Socis> contacto = null;
+        try {
+            iniciaOperacion();
+            contacto =  sesion.createQuery("from Socis where cognom = '" + cognom + "'").list();
+        } finally {
+            sesion.close();
+        }
+        return contacto;
     }
 
     /**

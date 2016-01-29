@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="430484541">
-    <data-source source="LOCAL" name="PostgreSQL - sandra_altafaja@172.31.104.80" uuid="7dee15e2-8042-4346-bf6b-054e35473a4d">
+  <component name="DataSourceManagerImpl" format="xml" hash="3440273389">
+    <data-source source="LOCAL" name="PostgreSQL - sandra_altafaja@192.168.130.76" uuid="5541735a-28de-46ec-8438-e4a4362280b8">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://172.31.104.80:5432/sandra_altafaja</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="Sqlite (Xerial) - database.sqlite" uuid="f3e6c715-3353-4d38-889d-36de8214993d">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:database.sqlite</jdbc-url>
+      <jdbc-url>jdbc:postgresql://192.168.130.76:5432/sandra_altafaja</jdbc-url>
     </data-source>
   </component>
 </project>

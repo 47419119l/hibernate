@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Hibernate 4.2.2-4.2.2" type="hibernate">
-    <properties version="4.2.2" />
+  <library name="Hibernate 4.2.2-4.2.2">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/hibernate-commons-annotations-4.0.2.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/antlr-2.7.7.jar!/" />
